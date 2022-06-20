@@ -16,8 +16,13 @@ import CountBox from "@/components/CountBox.vue";
   },
 })
 export default class VuexExample extends Vue {
+  created() {
+    console.log(this.$store);
+    this.$store.dispatch("moduleA/setRootData", "test");
+  }
   increase() {
     this.$store.dispatch("increase");
+    //dispatch : action 실행
   }
   decrease() {
     this.$store.dispatch("decrease");

@@ -1,46 +1,40 @@
+import { StoreOptions } from "vuex";
 import Vue from "vue";
-import Vuex, { ActionContext, StoreOptions } from "vuex";
+import Vuex from "vuex";
+import moduleA from "@/store/moduleA.store";
+import moduleB from "@/store/moduleB.store";
 
 Vue.use(Vuex);
 
-interface State {
-  count: number;
+export interface RootState {
+  data: string;
 }
 
-const store: StoreOptions<State> = {
-  state: {
-    count: 0,
+const store: StoreOptions<RootState> = {
+  modules: {
+    moduleA,
+    moduleB,
   },
+  state: {
+    data: "root",
+  },
+
   mutations: {
-    setCount(state: State, count: number) {
-      state.count = count;
+    setData(state, data: string) {
+      state.data = data;
     },
   },
 
   actions: {
-    increase({ state, commit }: ActionContext<State, State>) {
-      commit("setCount", state.count + 1);
-    },
-    decrease({ state, commit }: ActionContext<State, State>) {
-      commit("setCount", state.count - 1);
+    setRootData({ commit }, data: string) {
+      commit("setData", data);
+      //commit : mutate 실행
     },
   },
 
   getters: {
-    count: (state: State) => state.count,
+    data: (state) => state.data,
   },
 };
 
 export default new Vuex.Store(store);
-
-// export default new Vuex.Store({
-//   // 상태값 -> 컴포넌트에서 사용하게 될 데이터
-//   state: {},
-//   //계산된 값을 반환하는 함수(ex.필터링)
-//   getters: {},
-//   // 상태변이 함수
-//   mutations: {},
-//   // 상태 변이를 위한 로직 함수
-//   actions: {},
-//   modules: {},
-// });
