@@ -1,8 +1,8 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
-    <ChildrenPage :parentMessage="message"></ChildrenPage>
-    <button @click="changeMessage">change</button>
+    <ChildrenPage @counter="counter"></ChildrenPage>
+    <p>부모에서 숫자 보여주기 : {{ count }}</p>
   </div>
 </template>
 
@@ -16,11 +16,10 @@ import ChildrenPage from "@/components/ChildrenPage.vue";
   },
 })
 export default class HomeView extends Vue {
-  message: string = "hihi";
+  count: number = 0;
 
-  changeMessage() {
-    this.message = " change";
-    console.log("hi");
+  counter() {
+    this.count++;
   }
 }
 </script>
