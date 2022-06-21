@@ -1,13 +1,24 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
+    <HeaderPage></HeaderPage>
+    <ItemInput></ItemInput>
     <router-view />
   </div>
 </template>
 
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+import HeaderPage from "@/components/HeaderPage.vue";
+import ItemInput from "@/components/ItemInput.vue";
+
+@Component({
+  components: {
+    HeaderPage,
+    ItemInput,
+  },
+})
+export default class App extends Vue {}
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
