@@ -1,30 +1,41 @@
 import Vue from "vue";
-import VueRouter, { RouteConfig } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+import Router from "vue-router";
+// import VueRouter, { RouteConfig } from "vue-router";
+// import AllPage from "@/views/AllPage.vue";
+// import ActivePage from "@/views/ActivePage.vue";
+// import ClearPage from "@/views/ClearPage.vue";
+import ItemList from "@/views/ItemList.vue";
 
-Vue.use(VueRouter);
+Vue.use(Router);
 
-const routes: Array<RouteConfig> = [
-  {
-    path: "/",
-    name: "home",
-    component: HomeView,
-  },
-  {
-    path: "/about",
-    name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
-  },
-];
+// const routes: Array<RouteConfig> = [
+//   {
+//     path: "/",
+//     name: "itemList",
+//     component: ItemList,
+//   },
+//   {
+//     path: "/active",
+//     name: "active",
+//     component: ActivePage,
+//   },
+//   {
+//     path: "/clear",
+//     name: "clear",
+//     component: ClearPage,
+//   },
+// ];
 
-const router = new VueRouter({
+const router = new Router({
   mode: "history",
   base: process.env.BASE_URL,
-  routes,
+  routes: [
+    {
+      path: "/:status",
+      name: "itemList",
+      component: ItemList,
+    },
+  ],
 });
 
 export default router;
