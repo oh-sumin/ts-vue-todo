@@ -18,6 +18,7 @@ const store: StoreOptions<State> = {
     //add item
     addItem(state, item: Item) {
       state.todoList.push(item);
+      console.log(state.todoList);
     },
     //change status
     changeStatus(
@@ -39,9 +40,9 @@ const store: StoreOptions<State> = {
         .filter((item: Item) => item.status === "active");
     },
     clearTodoList: (state) => {
-      return state.todoList.slice().filter((item: Item) => {
-        item.status === "clear";
-      });
+      return state.todoList
+        .slice()
+        .filter((item: Item) => item.status === "clear");
     },
   },
 };
