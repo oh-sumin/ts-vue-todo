@@ -1,6 +1,8 @@
 import Vue from "vue";
 import Router from "vue-router";
-import ItemList from "@/views/ItemList.vue";
+import ActivePage from "@/components/ActivePage.vue";
+import ClearPage from "@/components/ClearPage.vue";
+import AllPage from "@/components/AllPage.vue";
 
 Vue.use(Router);
 
@@ -9,9 +11,19 @@ const router = new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: "/:status",
-      name: "itemList",
-      component: ItemList,
+      path: "/",
+      name: "all",
+      component: AllPage,
+    },
+    {
+      path: "/active",
+      name: "active",
+      component: ActivePage,
+    },
+    {
+      path: "/clear",
+      name: "clear",
+      component: ClearPage,
     },
   ],
 });
