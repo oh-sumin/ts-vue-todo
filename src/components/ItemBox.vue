@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <div class="item-list">
     <input
       type="checkbox"
       @change="changeStatus"
       :checked="status === 'clear'"
     />
-    <input type="text" :value="title" />
-    <button @click="removeItem">X</button>
+    <input class="content" type="text" :value="title" />
+    <button class="remove-btn" @click="removeItem">X</button>
   </div>
 </template>
 
@@ -32,3 +32,24 @@ export default class ItemBox extends Vue {
   }
 }
 </script>
+
+<style>
+.item-list {
+  margin-bottom: 8px;
+}
+
+.content {
+  margin-left: 10px;
+  width: 200px;
+  height: 30px;
+  font-size: 20px;
+}
+
+.remove-btn {
+  margin-left: 10px;
+  width: 30px;
+  height: 30px;
+  background-color: black;
+  color: white;
+}
+</style>

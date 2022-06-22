@@ -1,9 +1,11 @@
 <template>
   <div>
-    <h1>!</h1>
-    <router-link to="/">All</router-link>
-    <router-link to="/active">Active</router-link>
-    <router-link to="/clear">Clear</router-link>
+    <div class="title">Todo List</div>
+    <div class="link-box">
+      <router-link class="link" to="/">All</router-link>
+      <router-link class="link" to="/active">Active</router-link>
+      <router-link class="link" to="/clear">Clear</router-link>
+    </div>
   </div>
 </template>
 
@@ -13,3 +15,28 @@ import { Component, Vue } from "vue-property-decorator";
 @Component
 export default class HeaderPage extends Vue {}
 </script>
+
+<style>
+.title {
+  margin-top: 20px;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.link-box {
+  margin: 30px;
+}
+
+.link {
+  margin: 5px;
+  font-size: 20px;
+  text-decoration: none;
+  color: black;
+}
+
+.router-link-exact-active {
+  color: darkgreen;
+  font-weight: 600;
+  border-bottom: 2px solid darkgreen;
+}
+</style>

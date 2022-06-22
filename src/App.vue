@@ -2,7 +2,7 @@
   <div id="app">
     <HeaderPage></HeaderPage>
     <ItemInput></ItemInput>
-    <router-view />
+    <router-view class="view" />
   </div>
 </template>
 
@@ -39,5 +39,9 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.view {
+  margin: 30px;
 }
 </style>

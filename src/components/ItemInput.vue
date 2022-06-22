@@ -1,6 +1,7 @@
 <template>
   <div>
     <input
+      class="add"
       type="text"
       placeholder="할 일을 입력하세요"
       v-model="title"
@@ -24,6 +25,14 @@ export default class ItemInput extends Vue {
       title: this.title,
       status: "active",
     });
+    this.title = "";
   }
 }
 </script>
+
+<style>
+.add {
+  width: 200px;
+  height: 30px;
+}
+</style>
