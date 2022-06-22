@@ -35,14 +35,10 @@ const store: StoreOptions<State> = {
   getters: {
     allTodoList: (state) => state.todoList,
     activeTodoList: (state) => {
-      return state.todoList
-        .slice()
-        .filter((item: Item) => item.status === "active");
+      return state.todoList.filter((item: Item) => item.status === "active");
     },
     clearTodoList: (state) => {
-      return state.todoList
-        .slice()
-        .filter((item: Item) => item.status === "clear");
+      return state.todoList.filter((item: Item) => item.status === "clear");
     },
   },
 };

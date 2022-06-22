@@ -7,26 +7,41 @@
       v-model="title"
       @keyup.enter="addItem"
     />
+    <router-view
+      :todoList="todoList"
+      :activeList="activeList"
+      :clearList="clearList"
+    ></router-view>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import { mapState } from "vuex";
+import { Component, Vue, Prop } from "vue-property-decorator";
+import ItemList from "@/views/ItemList.vue";
 
 @Component({
-  computed: mapState(["todoList"]),
+  components: { ItemList },
 })
 export default class ItemInput extends Vue {
+  todoList: any[] = [];
+  activeList: any[] = [];
+  clearList: any[] = [];
   title: string = "";
   addItem() {
-    this.$store.commit("addItem", {
-      id: this.$store.state.todoList.length,
+    this.todoList.push({
+      id: this.todoList.length,
       title: this.title,
       status: "active",
     });
+    this.activeList = this.todoList.filter((data) => data.status === "active");
+    this.clearList = this.todoList.filter((data) => data.status === "clear");
     this.title = "";
+    console.log(this.activeList);
   }
+
+  // filterAction() {
+  //   this.activeList = this.todoList.filter((data) => data.status === "active");
+  // }
 }
 </script>
 
