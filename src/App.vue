@@ -1,8 +1,13 @@
 <template>
   <div id="app">
-    <HeaderPage></HeaderPage>
+    <div class="title">Todo List</div>
+    <div class="link-box">
+      <router-link class="link" to="/">All</router-link>
+      <router-link class="link" to="/active">Active</router-link>
+      <router-link class="link" to="/clear">Clear</router-link>
+    </div>
     <ItemInput></ItemInput>
-    <router-view class="view" />
+    <!-- <router-view class="view" /> -->
   </div>
 </template>
 
