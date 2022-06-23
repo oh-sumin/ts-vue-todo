@@ -21,28 +21,31 @@ import ItemBox from "@/components/ItemBox.vue";
 export default class ItemList extends Vue {
   renderList: any[] = [];
   created() {
-    this.reRenderList(this.$route.params.status);
+    // this.reRenderList(this.$router);
+    console.log("created");
+    console.log(this.$route);
   }
 
-  reRenderList(status: string) {
-    if (status === "active") {
-      this.renderList = this.$store.getters.activeTodoList;
-    } else if (status === "clear") {
-      this.renderList = this.$store.getters.clearTodoList;
-    } else if (status === "") {
-      console.log("wow");
-      this.renderList = this.$store.getters.allTodoList;
-    }
-  }
+  //   reRenderList(status: string) {
+  //     if (status === "active") {
+  //       this.renderList = this.$store.getters.activeTodoList;
+  //     } else if (status === "clear") {
+  //       this.renderList = this.$store.getters.clearTodoList;
+  //     } else if (status === "") {
+  //       console.log("wow");
+  //       this.renderList = this.$store.getters.allTodoList;
+  //     }
+  //   }
 
-  @Watch("$route.params.status")
-  routeUpdate(newValue: string) {
-    this.reRenderList(newValue);
-  }
+  //   @Watch("$route")
+  //   routeUpdate(newValue: string) {
+  //     this.reRenderList(newValue);
+  //     console.log(this.$router);
+  //   }
 
-  @Watch("$store.state.todoList", { deep: true })
-  routeUpdated() {
-    this.reRenderList(this.$route.params.status);
-  }
+  //   @Watch("$store.state.todoList", { deep: true })
+  //   routeUpdated() {
+  //     this.reRenderList(this.$route.params.status);
+  //   }
 }
 </script>
