@@ -2,7 +2,6 @@
   <div id="app">
     <HeaderPage></HeaderPage>
     <ItemInput></ItemInput>
-    <router-view class="view" />
   </div>
 </template>
 

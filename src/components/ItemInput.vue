@@ -7,25 +7,26 @@
       v-model="title"
       @keyup.enter="addItem"
     />
+    <router-view class="view" :todoList="todoList" />
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import { mapState } from "vuex";
+import { Component, Vue, Watch } from "vue-property-decorator";
 
-@Component({
-  computed: mapState(["todoList"]),
-})
+@Component({})
 export default class ItemInput extends Vue {
+  todoList: any[] = [];
+  renderList: any[] = [];
   title: string = "";
   addItem() {
-    this.$store.commit("addItem", {
-      id: this.$store.state.todoList.length,
+    this.todoList.push({
+      id: this.todoList.length,
       title: this.title,
       status: "active",
     });
     this.title = "";
+    console.log(this.todoList);
   }
 }
 </script>

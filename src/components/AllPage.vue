@@ -1,7 +1,6 @@
 <template>
   <div>
-    <div>all</div>
-    <ItemList :renderList="todoList"></ItemList>
+    <ItemList :renderList="todoList" :todoList="todoList"></ItemList>
   </div>
 </template>
 

@@ -1,7 +1,6 @@
 <template>
   <div>
-    <div>active</div>
-    <ItemList></ItemList>
+    <ItemList :renderList="renderList" :todoList="todoList"></ItemList>
   </div>
 </template>
 
@@ -15,5 +14,9 @@ import ItemList from "@/views/ItemList.vue";
 })
 export default class ActivePage extends Vue {
   @Prop() todoList!: any[];
+  renderList: any[] = [];
+  created() {
+    this.renderList = this.todoList.filter((data) => data.status === "active");
+  }
 }
 </script>

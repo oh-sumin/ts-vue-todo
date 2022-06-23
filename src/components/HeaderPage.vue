@@ -7,12 +7,12 @@
       >
       <router-link
         class="link"
-        :to="{ path: '/active', query: { status: 'active' } }"
+        :to="{ name: 'active', query: { status: 'active' } }"
         >Active</router-link
       >
       <router-link
         class="link"
-        :to="{ path: '/clear', query: { status: 'clear' } }"
+        :to="{ name: 'clear', query: { status: 'clear' } }"
         >Clear</router-link
       >
     </div>

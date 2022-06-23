@@ -6,12 +6,14 @@
       :id="item.id"
       :title="item.title"
       :status="item.status"
+      :renderList="renderList"
+      :todoList="todoList"
     ></ItemBox>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue, Watch } from "vue-property-decorator";
+import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 import ItemBox from "@/components/ItemBox.vue";
 @Component({
   components: {
@@ -19,12 +21,10 @@ import ItemBox from "@/components/ItemBox.vue";
   },
 })
 export default class ItemList extends Vue {
-  renderList: any[] = [];
-  created() {
-    // this.reRenderList(this.$router);
-    console.log("created");
-    console.log(this.$route);
-  }
+  @Prop() renderList!: any[];
+  @Prop() todoList!: any[];
+
+  //renderList: any[] = [];
 
   //   reRenderList(status: string) {
   //     if (status === "active") {

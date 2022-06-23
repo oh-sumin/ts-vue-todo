@@ -1,7 +1,6 @@
 <template>
   <div>
-    <div>clear</div>
-    <ItemList></ItemList>
+    <ItemList :renderList="renderList" :todoList="todoList"></ItemList>
   </div>
 </template>
 <script lang="ts">
@@ -13,6 +12,10 @@ import ItemList from "@/views/ItemList.vue";
   },
 })
 export default class ClearPage extends Vue {
-  @Prop() clearList!: any[];
+  @Prop() todoList!: any[];
+  renderList: any[] = [];
+  created() {
+    this.renderList = this.todoList.filter((data) => data.status === "clear");
+  }
 }
 </script>
